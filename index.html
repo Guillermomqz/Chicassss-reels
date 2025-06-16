@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reels Chicas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Reels Chicas</h1>
+  </header>
+
+  <div class="reels-container">
+
+    <!-- Reel 1 -->
+    <div class="reel" data-url="https://tusitio.com/reel1">
+      <div class="video-frame">
+        <video src="reel1.mp4" autoplay loop muted></video>
+      </div>
+      <div class="overlay">
+        <div class="info">
+          <p><strong>@chica_latina1</strong></p>
+          <p>Sensual domingo 🔥</p>
+          <p class="music">🎵 Beat latino</p>
+        </div>
+        <div class="actions">
+          <button onclick="like()" title="Me gusta">
+            <i class="fas fa-heart"></i>
+          </button>
+          <button title="Comentar">
+            <i class="fas fa-comment"></i>
+          </button>
+          <button onclick="shareWhatsApp()" title="Compartir en WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </button>
+          <button onclick="shareFacebook()" title="Compartir en Facebook">
+            <i class="fab fa-facebook"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reel 2 -->
+    <div class="reel" data-url="https://tusitio.com/reel2">
+      <div class="video-frame">
+        <video src="reel2.mp4" autoplay loop muted></video>
+      </div>
+      <div class="overlay">
+        <div class="info">
+          <p><strong>@colombiana_hot</strong></p>
+          <p>Halloween vibes 🎃</p>
+          <p class="music">🎵 Electrónica sensual</p>
+        </div>
+        <div class="actions">
+          <button onclick="like()" title="Me gusta">
+            <i class="fas fa-heart"></i>
+          </button>
+          <button title="Comentar">
+            <i class="fas fa-comment"></i>
+          </button>
+          <button onclick="shareWhatsApp()" title="Compartir en WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </button>
+          <button onclick="shareFacebook()" title="Compartir en Facebook">
+            <i class="fab fa-facebook"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function like() {
+      alert("¡Te gustó este Reel! ❤️");
+    }
+
+    function getCurrentReelUrl() {
+      const reels = document.querySelectorAll('.reel');
+      for (let reel of reels) {
+        const rect = reel.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight + 100) {
+          return reel.dataset.url || window.location.href;
+        }
+      }
+      return window.location.href;
+    }
+
+    function shareWhatsApp() {
+      const url = getCurrentReelUrl();
+      const text = encodeURIComponent("¡Mira este Reel en Reels Chicas! 🔥 " + url);
+      window.open("https://api.whatsapp.com/send?text=" + text, "_blank");
+    }
+
+    function shareFacebook() {
+      const url = getCurrentReelUrl();
+      window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank");
+    }
+  </script>
+
+</body>
+</html>

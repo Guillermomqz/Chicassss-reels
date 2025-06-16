@@ -1,0 +1,107 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fad0c4);
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #ff6a88, #ff99ac);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.reels-container {
+  width: 100%;
+}
+
+.reel {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-frame {
+  border: 5px solid #ff66cc;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 90%;
+  height: 90%;
+  position: relative;
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.info {
+  max-width: 70%;
+  text-shadow: 1px 1px 5px #000;
+}
+
+.music {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.actions i {
+  font-size: 1.8rem;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.actions button:hover i {
+  transform: scale(1.2);
+  color: #ff99cc;
+}
